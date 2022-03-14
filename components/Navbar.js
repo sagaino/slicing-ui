@@ -6,6 +6,9 @@ import cx from "classnames";
 
 export default function Navbar() {
   const [offcanvas, setOffCanvas] = useState(false);
+  const onClick = () => {
+    setOffCanvas(!offcanvas);
+  };
   return (
     <>
       <div className="flex items-center py-10">
@@ -25,7 +28,7 @@ export default function Navbar() {
             src="/menu.svg"
             alt="err"
             className="inline-block"
-            onClick={() => setOffCanvas(true)}
+            onClick={onClick}
           />
         </div>
       </div>
@@ -39,11 +42,9 @@ export default function Navbar() {
           src="/x.svg"
           alt="img"
           className="absolute w-8 top-8 right-8"
-          onClick={() => {
-            setOffCanvas(false);
-          }}
+          onClick={onClick}
         />
-        <Nav scheme="dark" dir="vertical" />
+        <Nav scheme="dark" dir="vertical" onClick={onClick} />
       </div>
     </>
   );
